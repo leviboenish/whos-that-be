@@ -11,6 +11,10 @@ module.exports = {
 
     getCharacters(){
       return database('characters');
+    },
+
+    getCharactersByBoard(id){
+      return database('characters').where('board_id', id);
     }
 
 };

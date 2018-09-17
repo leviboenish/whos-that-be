@@ -24,8 +24,15 @@ app.get('/boards', (req,res,next) =>{
 app.get('/characters', (req,res,next) =>{
   queries.getCharacters().then(characters => {
     res.json({characters});
+    })
   })
+
+  app.get('/characters/board/:id', (req,res,next) => {
+    queries.getCharactersByBoard(req.params.id).then(characters => {
+      res.json({characters});
+    })
   })
+
 
 app.listen(port, () => {
   console.log(`running on port ${port}`);
