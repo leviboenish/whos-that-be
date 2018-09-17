@@ -3,21 +3,28 @@ const app = express();
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const port = process.env.PORT || 3000;
+const queries = require('./queries')
 
 app.use(cors());
 app.use(bodyParser.json());
 
 
 app.get('/profiles', (req,res,next) =>{
-  res.send('profiles baby');
+    queries.getProfiles().then(profiles => {
+      res.json({profiles});
+    })
   })
 
 app.get('/boards', (req,res,next) =>{
-  res.send('boards baby');
+  queries.getBoards().then(boards => {
+    res.json({boards});
+  })
   })
 
 app.get('/characters', (req,res,next) =>{
-  res.send('characters baby');
+  queries.getCharacters().then(characters => {
+    res.json({characters});
+  })
   })
 
 app.listen(port, () => {
