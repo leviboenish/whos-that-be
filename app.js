@@ -8,8 +8,16 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
-app.get('/', (req,res,next) =>{
-  res.send('boom baby');
+app.get('/profiles', (req,res,next) =>{
+  res.send('profiles baby');
+  })
+
+app.get('/boards', (req,res,next) =>{
+  res.send('boards baby');
+  })
+
+app.get('/characters', (req,res,next) =>{
+  res.send('characters baby');
   })
 
 app.listen(port, () => {
